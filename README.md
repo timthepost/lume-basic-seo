@@ -99,7 +99,8 @@ update the options and option defaults.
 
 - Analyze site tags dynamically to find the most-used tags, and optionally make
   them the beginning of titles
--
+- Detect out-of-order headings? (e.g there should be a `<h3>` somewhere before
+  `<h4>`).
 
 [1]: https://en.wikipedia.org/wiki/Most_common_words_in_English
 [2]: https://lume.land/plugins/check_urls/
