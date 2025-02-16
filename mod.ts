@@ -256,7 +256,7 @@ export default function seo(userOptions?: Options) {
   const cachedWarnings = new Map<string, Set<string>>();
 
   return (site: Site) => {
-    function writeWarningsToFile(file: string) {
+    function writeWarningsToFile(file: string): void {
       log.warn(
         `SEO: Warnings were issued during this run. Report saved to ${file}`,
       );
@@ -273,7 +273,7 @@ export default function seo(userOptions?: Options) {
       return;
     }
 
-    function writeWarningsToConsole() {
+    function writeWarningsToConsole(): void {
       log.warn("SEO: Warnings were issued during this run. Report as follows:");
       const content = JSON.stringify(
         Object.fromEntries(
@@ -283,6 +283,7 @@ export default function seo(userOptions?: Options) {
         null,
         2,
       );
+      // TODO: pretty table-ify this somehow?
       console.dir(content);
       return;
     }
@@ -299,7 +300,7 @@ export default function seo(userOptions?: Options) {
 
         const warnings = [];
 
-        log.info(`Processing ${page.data.url} ...`);
+        log.info(`SEO: Processing ${page.data.url} ...`);
 
         if (options.warnTitleLength && page.data.title) {
           const titleLength = page.data.title.length;
