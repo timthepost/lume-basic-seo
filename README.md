@@ -43,7 +43,8 @@ All checks are optional, and default values can be overridden. Like the Check
 URLs plugin, you can log to a file, a function, or standard output / standard
 error.
 
-Options are documented in the code; all have reasonable defaults:
+Options are documented in the code; all have reasonable defaults (it's easiest
+to just show the relevant code):
 
 ```ts
 interface Options {
@@ -51,9 +52,10 @@ interface Options {
   warnTitleLength?: boolean;
   /* long URLs can be problematic */
   warnUrlLength?: boolean;
-  /* How long is too long for titles and URLs? (70) */
+  /* How long is too long for titles (70) */
   thresholdLength?: number;
-
+  /* What % of thresholdLength should be applied to URLs? (70) */
+  thresholdLengthPercentage?: number;
   /* There should only be one <h1> tag per node */
   warnDuplicateHeadings?: boolean;
 
@@ -77,6 +79,21 @@ interface Options {
   /* Console, file or function */
   output?: string | ((seoWarnings: Map<string, Set<string>>) => void);
 }
+
+export const defaults: Options = {
+  extensions: [".md", ".mdx"],
+  ignore: ["/404.html"],
+  warnTitleLength: true,
+  warnUrlLength: true,
+  thresholdLength: 80,
+  thresholdLengthPercentage: .7,
+  warnDuplicateHeadings: true,
+  warnTitleCommonWords: true,
+  warnUrlCommonWords: true,
+  thresholdCommonWordsPercent: 40,
+  warnImageAltAttribute: true,
+  warnImageTitleAttribute: true,
+};
 ```
 
 ## Background
