@@ -87,6 +87,9 @@ make a copy of this and add a suffix with the language code, e.g.
 `lume-basic-seo-es` and publish it yourself. Send me a link and I'll include it
 here!
 
+I'll also take a PR that allows for passing a custom common word set as an
+option (see ideas below).
+
 ## Support / Features / Etc
 
 Use GH issues, or Lume's Discord server (issues almost guarantees a faster
@@ -101,6 +104,8 @@ update the options and option defaults.
   them the beginning of titles
 - Detect out-of-order headings? (e.g there should be a `<h3>` somewhere before
   `<h4>`).
+- Allow passing of custom common word sets (which could also help solve
+  internationalization)
 
 ## Credits
 
