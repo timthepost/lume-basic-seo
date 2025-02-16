@@ -1,6 +1,6 @@
 import { merge } from "lume/core/utils/object.ts";
 import { log } from "lume/core/utils/log.ts";
-import Site from "lume/core/site.ts";
+import type Site from "lume/core/site.ts";
 
 interface Options {
   /* Titles should ideally be under 80 characters */
