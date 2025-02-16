@@ -264,7 +264,8 @@ export default function (userOptions: Options) {
         null,
         2,
       );
-      return Deno.writeTextFileSync(file, content);
+      Deno.writeTextFileSync(file, content);
+      return;
     }
 
     function writeWarningsToConsole() {
@@ -277,7 +278,8 @@ export default function (userOptions: Options) {
         null,
         2,
       );
-      return (console.dir(content));
+      console.dir(content);
+      return;
     }
 
     let warningCount = 0;
