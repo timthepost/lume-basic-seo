@@ -148,6 +148,8 @@ update the options and option defaults.
   `<h4>`).
 - Allow passing of custom common word sets (which could also help solve
   internationalization)
+- Allow frontmatter to control processing (e.g. `seo: false` to have a post
+  ignored)
 
 ## Credits
 
