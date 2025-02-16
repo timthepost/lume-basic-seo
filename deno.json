@@ -6,9 +6,5 @@
   },
   "imports": {
     "lume/": "https://deno.land/x/lume@v2.5.1/"
-  },
-  "name": "@timthepost/lume-basic-seo",
-  "version": "0.1.0",
-  "license": "MIT",
-  "exports": "./mod.ts"
+  }
 }
