@@ -56,6 +56,8 @@ interface Options {
   thresholdLength?: number;
   /* What % of thresholdLength should be applied to URLs? (70) */
   thresholdLengthPercentage?: number;
+  /* Min length for common word percentage checks */
+  thresholdLengthForCWCheck?: number;
   /* There should only be one <h1> tag per node */
   warnDuplicateHeadings?: boolean;
 
@@ -87,6 +89,7 @@ export const defaults: Options = {
   warnUrlLength: true,
   thresholdLength: 80,
   thresholdLengthPercentage: .7,
+  thresholdLengthForCWCheck: 35,
   warnDuplicateHeadings: true,
   warnTitleCommonWords: true,
   warnUrlCommonWords: true,
@@ -95,6 +98,16 @@ export const defaults: Options = {
   warnImageTitleAttribute: true,
 };
 ```
+
+_**It is expected that the default settings will be quite noisy.**_ I suggest
+looking at the warnings, addressing them as best you can while remembering that
+it's humans that we must really optimize for, and then dial them back using
+options like squelch knobs.
+
+Don't make your content _less_ readable by reacting to these warnings. Take some
+time to think about how to use fewer words, or fewer common words. Titles and
+URLs can be too short, too. It's always a subjective call to get balance between
+impressing robots and visitors the same.
 
 ## Background
 

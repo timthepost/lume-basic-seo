@@ -11,6 +11,8 @@ interface Options {
   thresholdLength?: number;
   /* What % of thresholdLength should be applied to URLs? (70) */
   thresholdLengthPercentage?: number;
+  /* Min length for common word percentage checks */
+  thresholdLengthForCWCheck?: number;
   /* There should only be one <h1> tag per node */
   warnDuplicateHeadings?: boolean;
 
@@ -42,6 +44,7 @@ export const defaults: Options = {
   warnUrlLength: true,
   thresholdLength: 80,
   thresholdLengthPercentage: .7,
+  thresholdLengthForCWCheck: 35,
   warnDuplicateHeadings: true,
   warnTitleCommonWords: true,
   warnUrlCommonWords: true,
@@ -345,7 +348,10 @@ export default function seo(userOptions?: Options) {
           }
         }
 
-        if (options.warnTitleCommonWords && page.data.title) {
+        if (
+          options.warnTitleCommonWords && page.data.title &&
+          page.data.title.length >= options.thresholdLengthForCWCheck
+        ) {
           const titleCommonWords = calculateCommonWordPercentage(
             page.data.title,
           );
@@ -355,7 +361,10 @@ export default function seo(userOptions?: Options) {
           }
         }
 
-        if (options.warnUrlCommonWords && page.data.url) {
+        if (
+          options.warnUrlCommonWords && page.data.url &&
+          page.data.url.length >= options.thresholdLengthForCWCheck
+        ) {
           const urlCommonWords = calculateCommonWordPercentage(page.data.url);
           if (urlCommonWords >= options.thresholdCommonWordsPercent) {
             warnings[warningCount++] =
