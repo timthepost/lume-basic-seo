@@ -7,9 +7,10 @@ interface Options {
   warnTitleLength?: boolean;
   /* long URLs can be problematic */
   warnUrlLength?: boolean;
-  /* How long is too long for titles and URLs? (70) */
+  /* How long is too long for titles (70) */
   thresholdLength?: number;
-
+  /* What % of thresholdLength should be applied to URLs? (70) */
+  thresholdLengthPercentage?: number;
   /* There should only be one <h1> tag per node */
   warnDuplicateHeadings?: boolean;
 
@@ -40,15 +41,16 @@ export const defaults: Options = {
   warnTitleLength: true,
   warnUrlLength: true,
   thresholdLength: 80,
+  thresholdLengthPercentage: .7,
   warnDuplicateHeadings: true,
   warnTitleCommonWords: true,
   warnUrlCommonWords: true,
-  thresholdCommonWordsPercent: 15,
+  thresholdCommonWordsPercent: 40,
   warnImageAltAttribute: true,
   warnImageTitleAttribute: true,
 };
 
-export default function (userOptions: Options) {
+export default function seo(userOptions?: Options) {
   const options = merge(defaults, userOptions);
 
   function calculateCommonWordPercentage(title: string): number {
@@ -298,18 +300,19 @@ export default function (userOptions: Options) {
 
         if (options.warnTitleLength && page.data.title) {
           const titleLength = page.data.title.length;
-          if (titleLength > options.thresholdLength) {
+          if (titleLength >= options.thresholdLength) {
             warnings[warningCount] =
-              "Title is over 79 characters; less is more.";
+              `Title is over ${options.thresholdLength} characters; less is more.`;
           }
         }
 
         if (options.warnUrlLength) {
           const urlLength = page.data.url.length;
-          const maxLength = urlLength / 2;
-          if (urlLength > maxLength) {
+          const maxLength = options.thresholdLength *
+            options.thresholdLengthPercentage;
+          if (urlLength >= maxLength) {
             warnings[warningCount++] =
-              `URL exceeds ${maxLength}, which is half of the title limit; consider shortening.`;
+              `URL meets or exceeds ${maxLength}, which is ${options.thresholdLengthPercentage} of the title limit; consider shortening.`;
           }
         }
 
