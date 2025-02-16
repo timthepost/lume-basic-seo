@@ -102,6 +102,12 @@ update the options and option defaults.
 - Detect out-of-order headings? (e.g there should be a `<h3>` somewhere before
   `<h4>`).
 
+## Credits
+
+This plugin borrows some design ideas and even a little code from the
+[Check URLs][2] plugin, as it manages a similar type of lifting. Plus, I really
+liked how it lets you configure output.
+
 [1]: https://en.wikipedia.org/wiki/Most_common_words_in_English
 [2]: https://lume.land/plugins/check_urls/
 [3]: https://lume.land/plugins/metas/
