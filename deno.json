@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "types": [
+      "lume/types.ts"
+    ]
+  },
+  "imports": {
+    "lume/": "https://deno.land/x/lume@v2.5.1/"
+  }
+}
