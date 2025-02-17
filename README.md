@@ -29,22 +29,21 @@ TODO (not yet published on Deno)
 
 Grab this repo, copy the `mod.ts` file to the Lume project you want to use it
 with (save it in `src/_plugins/seo/mod.ts` as an example). Then import it like
-you would any other plugin in lume, in `plugins.ts`:
+you would any other plugin in lume, in `plugins.ts`, passing any options you
+like. This loads it and configures output to go to `_seo-report.json`:
 
 ```ts
 import seo from "./src/_plugins/seo/mod.ts";
 
 ...
 
-.use(seo({ /* options */ }))
+.use(seo({ output: "_seo-report.json" }))
 ```
 
 All checks are optional, and default values can be overridden. Like the Check
 URLs plugin, you can log to a file, a function, or standard output / standard
-error.
-
-Options are documented in the code; all have reasonable defaults (it's easiest
-to just show the relevant code):
+error. Options are documented in the code; all have reasonable defaults (it's
+easiest to just show the relevant code):
 
 ```ts
 interface Options {
