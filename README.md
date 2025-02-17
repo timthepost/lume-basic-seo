@@ -122,14 +122,23 @@ overtaking the original site.
 
 ## Internationalization
 
-That's kind of tough, considering common words and the ick of polluting the data
-model with info for a plugin, not the page itself. What I recommend you do is
-make a copy of this and add a suffix with the language code, e.g.
-`lume-basic-seo-es` and publish it yourself. Send me a link and I'll include it
-here!
+There's two parts of this plugin that are hard-coded English:
 
-I'll also take a PR that allows for passing a custom common word set as an
-option (see ideas below).
+- The list of common words in the function that evaluates them, and,
+- The warnings / logging phrases.
+
+For the first, there will soon be an option that lets you pass a custom set of
+words via the plugin options, which can be in any language. _**Don't just
+translate the English words**_, research which words are most common in your
+target language and pass them as a set.
+
+For the logging / warnings, there's no clear / clean way for
+internationalization in plugins that I know of. What I suggest is forking the
+plugin, then renaming it to `lume-basic-seo-XX`, where `XX` is the two-letter
+language code. Send me a link and I'll link to it here.
+
+It's probably easiest to just pass the custom common word set, which will soon
+be implemented.
 
 ## Support / Features / Etc
 
@@ -145,8 +154,8 @@ update the options and option defaults.
   them the beginning of titles
 - Detect out-of-order headings? (e.g there should be a `<h3>` somewhere before
   `<h4>`) (in-progress)
-- Allow passing of custom common word sets (which could also help solve
-  internationalization) (in-progress)
+- Allow passing of custom common word sets for multi-language support
+  (in-progress)
 - Allow frontmatter to control processing (e.g. `seo: false` to have a post
   ignored) (in-progress)
 
