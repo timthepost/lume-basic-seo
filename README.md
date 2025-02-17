@@ -65,6 +65,8 @@ interface Options {
   thresholdCommonWordsPercent?: number;
   /* Min length for common word percentage checks */
   thresholdLengthForCWCheck?: number;
+  /* Inject your own set of common words */
+  userCommonWordSet?: Set<string>;
 
   /* This is also basic accessibility: images need alt="" attribute */
   warnImageAltAttribute?: boolean;
