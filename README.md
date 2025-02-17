@@ -10,9 +10,8 @@ when it comes to how your site is indexed. Currently, checks are:
 
 - Make sure titles are under 80 characters, this helps their chances of being
   indexed.
-- Make sure URLs are under 40 characters (half of max title length by default)
-  for the same reason.
-- Make sure only one `<h1></h1>` element exists in a page.
+- Make sure URLs are under 70% (default) of title length, for the same reason.
+- Make sure only one `<h1>` element exists in a page.
 - Make sure titles and URLs contain a relatively low percentage of
   [common words][1]
 - Make sure images have alt="" attributes; this also matters for accessibility.
