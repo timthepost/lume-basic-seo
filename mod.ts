@@ -261,6 +261,7 @@ export default function seo(userOptions?: Options) {
         `SEO: Warnings were issued during this run. Report saved to ${file}`,
       );
       // very similar to how the links plugin converts
+      // TODO: Make this a function
       const content = JSON.stringify(
         Object.fromEntries(
           Array.from(cachedWarnings.entries())
