@@ -337,6 +337,7 @@ export default function seo(userOptions?: Options) {
           const headings = page.document.querySelectorAll("h1, h2, h3, h4, h5");
           let previousLevel = 0;
           for (const heading of headings) {
+            // h1 becomes 1, h2 becomes 2, etc.
             const currentLevel = parseInt(heading.tagName.slice(1));
             if (currentLevel > previousLevel + 1) {
               warnings[warningCount++] =
