@@ -258,7 +258,7 @@ export default function seo(userOptions?: Options) {
   return (site: Site) => {
     function writeWarningsToFile(): void {
       log.warn(
-        `SEO: Warnings were issued during this run. Report saved to ${file}`,
+        `SEO: Warnings were issued during this run. Report saved to ${options.output}`,
       );
       // very similar to how the links plugin converts
       // TODO: Make this a function
