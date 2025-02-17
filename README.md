@@ -13,10 +13,11 @@ when it comes to how your site is indexed. Currently, checks are:
 - Make sure URLs are under 70% (default) of title length, for the same reason.
 - Make sure only one `<h1>` element exists in a page.
 - Make sure titles and URLs contain a relatively low percentage of
-  [common words][1]
+  [common words][1].
 - Make sure images have alt="" attributes; this also matters for accessibility.
 - Make sure images have title="" attributes; this is an opportunity for
   strategic text to guide image searches.
+- More checks coming soon (see below!)
 
 This plugin is meant to run in conjunction with the [Check URLs][2] and
 [Metas][3] plugins for a comprehensive approach to managing SEO factors. It is
@@ -41,8 +42,8 @@ import seo from "./src/_plugins/seo/mod.ts";
 
 All checks are optional, and default values can be overridden. Like the Check
 URLs plugin, you can log to a file, a function, or standard output / standard
-error. Options are documented in the code; all have reasonable defaults (it's
-easiest to just show the relevant code):
+error (default). Options are documented in the code; all have reasonable
+defaults (it's easiest to just show the relevant code):
 
 ```ts
 interface Options {
@@ -143,11 +144,11 @@ update the options and option defaults.
 - Analyze site tags dynamically to find the most-used tags, and optionally make
   them the beginning of titles
 - Detect out-of-order headings? (e.g there should be a `<h3>` somewhere before
-  `<h4>`).
+  `<h4>`) (in-progress)
 - Allow passing of custom common word sets (which could also help solve
-  internationalization)
+  internationalization) (in-progress)
 - Allow frontmatter to control processing (e.g. `seo: false` to have a post
-  ignored)
+  ignored) (in-progress)
 
 ## Credits
 
