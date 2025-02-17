@@ -128,18 +128,16 @@ There's two parts of this plugin that are hard-coded English:
 - The list of common words in the function that evaluates them, and,
 - The warnings / logging phrases.
 
-For the first, there will soon be an option that lets you pass a custom set of
-words via the plugin options, which can be in any language. _**Don't just
-translate the English words**_, research which words are most common in your
-target language and pass them as a set.
+For the first, there's an option `userCommonWordSet` where you can pass your own
+set of words similar to what's in the plugin. Just make sure they really are
+common in the topic / setting.
 
 For the logging / warnings, there's no clear / clean way for
 internationalization in plugins that I know of. What I suggest is forking the
 plugin, then renaming it to `lume-basic-seo-XX`, where `XX` is the two-letter
 language code. Send me a link and I'll link to it here.
 
-It's probably easiest to just pass the custom common word set, which will soon
-be implemented.
+It's probably easiest to just pass the custom common word set.
 
 ## Support / Features / Etc
 
