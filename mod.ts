@@ -358,7 +358,7 @@ export default function seo(userOptions?: Options) {
           );
           if (titleCommonWords >= options.thresholdCommonWordsPercent) {
             warnings[warningCount++] =
-              `SEO: Title has a large percentage (${titleCommonWords}) of common  words; consider revising.`;
+              `SEO: Title has a large percentage (${titleCommonWords}) of common words; consider revising.`;
           }
         }
 
@@ -369,7 +369,7 @@ export default function seo(userOptions?: Options) {
           const urlCommonWords = calculateCommonWordPercentage(page.data.url);
           if (urlCommonWords >= options.thresholdCommonWordsPercent) {
             warnings[warningCount++] =
-              `SEO: URL has a large percentage (${urlCommonWords}) of common  words; consider revising.`;
+              `SEO: URL has a large percentage (${urlCommonWords}) of common words; consider revising.`;
           }
         }
 
