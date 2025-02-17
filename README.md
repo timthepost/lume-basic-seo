@@ -157,6 +157,8 @@ update the options and option defaults.
   (in-progress)
 - Allow frontmatter to control processing (e.g. `seo: false` to have a post
   ignored) (in-progress)
+- Examine `page.data.metas` settings and do some length and common word checks
+  if found.
 
 ## Credits
 
