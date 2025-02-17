@@ -12,12 +12,12 @@ when it comes to how your site is indexed. Currently, checks are:
   indexed.
 - Make sure URLs are under 70% (default) of title length, for the same reason.
 - Make sure only one `<h1>` element exists in a page.
-- Make sure heading elements are used in semantic order (H1 - H5)
+- Make sure heading elements are used in semantic order (H1 - H5).
 - Make sure titles and URLs contain a relatively low percentage of
   [common words][1].
 - Make sure images have alt="" and title="" attributes. This helps
   accessibility, and boosts image search strategies.
-- More checks coming soon (see below!)
+- More checks coming soon (see ideas below!)
 
 This plugin is meant to run in conjunction with the [Check URLs][2] and
 [Metas][3] plugins for a comprehensive approach to managing SEO factors. It is
@@ -140,15 +140,15 @@ language code. Send me a link and I'll link to it here.
 
 It's probably easiest to just pass the custom common word set.
 
-## Support / Features / Etc
+## Support & Requesting Features
 
-Use GH issues, or Lume's Discord server (issues almost guarantees a faster
-response). I'm disabled and don't have a ton of productive free time, but I'm
-happy to help. If you add a check that you think would be beneficial for
+Use GH issues, or find me in Lume's Discord server (issues almost guarantees a
+faster response). I'm disabled and don't have a ton of productive free time, but
+I'm happy to help. If you add a check that you think would be beneficial for
 everyone, consider sending me a PR to include it, just make sure you remember to
 update the options and option defaults.
 
-## Next-up Checks / Features
+## Next-up Ideas For Checks / Features
 
 - Analyze site tags dynamically to find the most-used tags, and optionally make
   them the beginning of titles
