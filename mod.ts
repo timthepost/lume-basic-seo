@@ -256,12 +256,8 @@ export default function seo(userOptions?: Options) {
   const cachedWarnings = new Map<string, Set<string>>();
 
   return (site: Site) => {
-    function writeWarningsToFile(): void {
-      log.warn(
-        `SEO: Warnings were issued during this run. Report saved to ${options.output}`,
-      );
-      // very similar to how the links plugin converts
-      // TODO: Make this a function
+    // very similar to how Check Urls plugin does this
+    function JSONIfyCachedWarnings(): string {
       const content = JSON.stringify(
         Object.fromEntries(
           Array.from(cachedWarnings.entries())
@@ -270,6 +266,14 @@ export default function seo(userOptions?: Options) {
         null,
         2,
       );
+      return content;
+    }
+
+    function writeWarningsToFile(): void {
+      log.warn(
+        `SEO: Warnings were issued during this run. Report saved to ${options.output}`,
+      );
+      const content = JSONIfyCachedWarnings();
       // we only get here if options.output is a string
       Deno.writeTextFileSync(<string> options.output, content);
       return;
@@ -277,14 +281,7 @@ export default function seo(userOptions?: Options) {
 
     function writeWarningsToConsole(): void {
       log.warn("SEO: Warnings were issued during this run. Report as follows:");
-      const content = JSON.stringify(
-        Object.fromEntries(
-          Array.from(cachedWarnings.entries())
-            .map(([url, refs]) => [url, Array.from(refs)]),
-        ),
-        null,
-        2,
-      );
+      const content = JSONIfyCachedWarnings();
       // TODO: pretty table-ify this somehow?
       console.dir(content);
       return;
