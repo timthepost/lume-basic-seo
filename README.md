@@ -14,9 +14,8 @@ when it comes to how your site is indexed. Currently, checks are:
 - Make sure only one `<h1>` element exists in a page.
 - Make sure titles and URLs contain a relatively low percentage of
   [common words][1].
-- Make sure images have alt="" attributes; this also matters for accessibility.
-- Make sure images have title="" attributes; this is an opportunity for
-  strategic text to guide image searches.
+- Make sure images have alt="" and title="" attributes. This helps
+  accessibility, and boosts image search strategies.
 - More checks coming soon (see below!)
 
 This plugin is meant to run in conjunction with the [Check URLs][2] and
