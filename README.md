@@ -57,6 +57,8 @@ interface Options {
   thresholdLengthPercentage?: number;
   /* There should only be one <h1> tag per node */
   warnDuplicateHeadings?: boolean;
+  /* Warn if heading elements are used out of order? */
+  warnHeadingOrder?: boolean;
 
   /* Try to use non-common words in precious URL space! */
   warnUrlCommonWords?: boolean;
@@ -92,6 +94,7 @@ export const defaults: Options = {
   thresholdLengthPercentage: .7,
   thresholdLengthForCWCheck: 35,
   warnDuplicateHeadings: true,
+  warnHeadingOrder: true,
   warnTitleCommonWords: true,
   warnUrlCommonWords: true,
   thresholdCommonWordsPercent: 40,
