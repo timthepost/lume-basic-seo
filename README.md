@@ -100,8 +100,8 @@ export const defaults: Options = {
 
 _**It is expected that the default settings will be quite noisy.**_ I suggest
 looking at the warnings, addressing them as best you can while remembering that
-it's humans that we must really optimize for, and then dial them back using
-options like squelch knobs.
+it's humans that we must really optimize for, and then dial settings back until
+you're happy with the output.
 
 Don't make your content _less_ readable by reacting to these warnings. Take some
 time to think about how to use fewer words, or fewer common words. Titles and
