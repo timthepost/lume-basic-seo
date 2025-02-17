@@ -12,6 +12,7 @@ when it comes to how your site is indexed. Currently, checks are:
   indexed.
 - Make sure URLs are under 70% (default) of title length, for the same reason.
 - Make sure only one `<h1>` element exists in a page.
+- Make sure heading elements are used in semantic order (H1 - H5)
 - Make sure titles and URLs contain a relatively low percentage of
   [common words][1].
 - Make sure images have alt="" and title="" attributes. This helps
@@ -151,8 +152,6 @@ update the options and option defaults.
 
 - Analyze site tags dynamically to find the most-used tags, and optionally make
   them the beginning of titles
-- Detect out-of-order headings? (e.g there should be a `<h3>` somewhere before
-  `<h4>`) (in-progress)
 - Allow frontmatter to control processing (e.g. `seo: false` to have a post
   ignored) (in-progress)
 - Examine `page.data.metas` settings and do some length and common word checks

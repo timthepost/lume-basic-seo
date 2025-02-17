@@ -13,6 +13,8 @@ interface Options {
   thresholdLengthPercentage?: number;
   /* There should only be one <h1> tag per node */
   warnDuplicateHeadings?: boolean;
+  /* Warn if heading elements are used out of order? */
+  warnHeadingOrder?: boolean;
 
   /* Try to use non-common words in precious URL space! */
   warnUrlCommonWords?: boolean;
@@ -48,6 +50,7 @@ export const defaults: Options = {
   thresholdLengthPercentage: .7,
   thresholdLengthForCWCheck: 35,
   warnDuplicateHeadings: true,
+  warnHeadingOrder: true,
   warnTitleCommonWords: true,
   warnUrlCommonWords: true,
   thresholdCommonWordsPercent: 40,
@@ -326,7 +329,20 @@ export default function seo(userOptions?: Options) {
           const headingOneCount = page.document.querySelectorAll("h1").length;
           if (headingOneCount && headingOneCount > 1) {
             warnings[warningCount++] =
-              "More than one <h1> tag. This is almost never what you want.";
+              "More than one <h1> element. This is almost never what you want.";
+          }
+        }
+
+        if (options.warnHeadingOrder && page.document) {
+          const headings = page.document.querySelectorAll("h1, h2, h3, h4, h5");
+          let previousLevel = 0;
+          for (const heading of headings) {
+            const currentLevel = parseInt(heading.tagName.slice(1));
+            if (currentLevel > previousLevel + 1) {
+              warnings[warningCount++] =
+                `Heading elements out of order: ${heading.tagName} - Headings should be in semantic order.`;
+            }
+            previousLevel = currentLevel;
           }
         }
 
