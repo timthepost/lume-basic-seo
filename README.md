@@ -153,8 +153,6 @@ update the options and option defaults.
   them the beginning of titles
 - Detect out-of-order headings? (e.g there should be a `<h3>` somewhere before
   `<h4>`) (in-progress)
-- Allow passing of custom common word sets for multi-language support
-  (in-progress)
 - Allow frontmatter to control processing (e.g. `seo: false` to have a post
   ignored) (in-progress)
 - Examine `page.data.metas` settings and do some length and common word checks
