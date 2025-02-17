@@ -256,7 +256,7 @@ export default function seo(userOptions?: Options) {
   const cachedWarnings = new Map<string, Set<string>>();
 
   return (site: Site) => {
-    function writeWarningsToFile(file: string): void {
+    function writeWarningsToFile(): void {
       log.warn(
         `SEO: Warnings were issued during this run. Report saved to ${file}`,
       );
@@ -269,7 +269,8 @@ export default function seo(userOptions?: Options) {
         null,
         2,
       );
-      Deno.writeTextFileSync(file, content);
+      // we only get here if options.output is a string
+      Deno.writeTextFileSync(<string> options.output, content);
       return;
     }
 
@@ -384,7 +385,7 @@ export default function seo(userOptions?: Options) {
         if (typeof options.output === "function") {
           options.output(cachedWarnings);
         } else if (typeof options.output === "string") {
-          writeWarningsToFile(options.output);
+          writeWarningsToFile();
         } else {
           writeWarningsToConsole();
         }
